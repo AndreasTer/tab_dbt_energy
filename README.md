@@ -1,4 +1,4 @@
-Welcome to your new dbt project!
+Welcome to the energy dbt demo project!
 
 ### Using the starter project
 
@@ -6,6 +6,15 @@ Try running the following commands:
 - dbt run
 - dbt test
 
+Use this custom SQL to display your metric:
+```
+    select *
+    from {{ metrics.calculate(
+        metric('total_co2_emitted'),
+        grain='year',
+        dimensions=['country']
+) }}
+```
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
