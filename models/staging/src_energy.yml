@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: DBT_DEMO
+    tables:
+      - name: RAW_CO2
+      - name: RAW_CO2_COSTS
+      - name: RAW_ENERGY
+      - name: RAW_REGIONS

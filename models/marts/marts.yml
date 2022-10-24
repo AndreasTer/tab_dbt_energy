@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: dim_regions
+    description: "Definition table by OWID. Grouping countrys by regions."
+    columns:
+      - name: country
+        description: "Name of the country."
+      - name: iso_code
+        description: "ISO code of the country."
+      - name: continent
+        description: "Region of the counntry defined by OWID"
+
+  - name: fct_energy_small
+    description: "Small version of the energy and co2 database by OWID."
+    columns:
+      - name: country
+        description: "Name of the country"
+      - name: year
+        description: "Year of energy datapoint."
+      - name: population
+        description: "Population of the country"
+      - name: gdp
+        description: "GDP of the country"
+      - name: energy_per_capita
+        description: "Energy used per person in the country."
+      - name: energy_per_gdp
+        description: "Energy used per gdp in the country."
+      - name: electricity_demand
+        description: ""
+      - name: electricity_generation
+        description: ""
+      - name: per_capita_electricity
+        description: ""
+      - name: primary_energy_consumption
+        description: ""
+      - name: carbon_intensity_elec
+        description: ""
+      - name: fossil_elec_per_capita
+        description: ""
+      - name: fossil_electricity
+        description: ""
+      - name: fossil_energy_per_capita
+        description: ""
+      - name: fossil_fuel_consumption
+        description: ""
+      - name: renewables_consumption
+        description: ""
+      - name: renewables_elec_per_capita
+        description: ""
+      - name: renewables_electricity
+        description: ""
+      - name: renewables_energy_per_capita
+        description: ""
+      - name: co2
+        description: "Total CO2 emitted by the country in the selected year."
+      - name: co2_per_gdp
+        description: "CO2 emitted by the country per gdp in the selected year."
+      - name: co2_per_capita
+        description: "CO2 emitted by the country per capita in the selected year."
+      - name: total_ghg
+        description: "Total greenhouse gases emitted by the country in the selected year."
+
+metrics:
+  - name: total_co2_emitted
+    label: CO2 emitted
+    model: ref('fct_energy_small')
+    description: "Total emitted CO2 emitted by counntry"
+
+    type: sum
+    sql: country 
+
+    timestamp: year
+    time_grains: [year]
+
+    dimensions:
+      - country
