@@ -68,7 +68,7 @@ metrics:
     description: "Total emitted CO2 emitted by counntry"
 
     type: sum
-    sql: country 
+    sql: co2
 
     timestamp: year
     time_grains: [year]
