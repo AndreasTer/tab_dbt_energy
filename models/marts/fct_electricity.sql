@@ -2,6 +2,7 @@ with energy as (select * from {{ ref("stg_energy") }})
 
 select
     country,
+    carbon_intensity_elec,
     fossil_elec_per_capita,
     fossil_electricity,
     fossil_share_elec,

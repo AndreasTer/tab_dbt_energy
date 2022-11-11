@@ -66,6 +66,8 @@ models:
     columns:      
       - name: country
         description: "Geographic location"
+      - name: carbon_intensity_elec
+        description: "Carbon intensity of electricity production, measured in grams of carbon dioxide emitted per kilowatt-hour"
       - name: fossil_elec_per_capita
         description: "Per capita electricity generation from fossil fuels, measured in kilowatt-hours. This is the sum of electricity generated from coal, oil and gas."
       - name: fossil_electricity
