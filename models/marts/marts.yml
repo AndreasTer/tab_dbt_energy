@@ -5,62 +5,93 @@ models:
     description: "Definition table by OWID. Grouping countrys by regions."
     columns:
       - name: country
-        description: "Name of the country."
+        description: "Geographic location"
       - name: iso_code
-        description: "ISO code of the country."
+        description: "ISO 3166-1 alpha-3 three-letter country codes"
       - name: continent
-        description: "Region of the counntry defined by OWID"
+        description: "Region of countries, defined by OWID"
 
   - name: fct_energy_small
     description: "Small version of the energy and co2 database by OWID."
-    columns:
+    columns:      
       - name: country
-        description: "Name of the country"
+        description: "Geographic location"
       - name: year
-        description: "Year of energy datapoint."
+        description: "Year of observation"
       - name: population
-        description: "Population of the country"
+        description: "Population"
       - name: gdp
-        description: "GDP of the country"
+        description: "Total real gross domestic product, inflation-adjusted"
       - name: energy_per_capita
-        description: "Energy used per person in the country."
+        description: "Primary energy consumption per capita, measured in kilowatt-hours"
       - name: energy_per_gdp
-        description: "Energy used per gdp in the country."
+        description: "Energy consumption per unit of GDP. This is measured in kilowatt-hours per 2011 international-$."
       - name: electricity_demand
-        description: ""
+        description: "Electricity demand, measured in terawatt-hours"
       - name: electricity_generation
-        description: ""
+        description: "Electricity generation, measured in terawatt-hours"
       - name: per_capita_electricity
-        description: ""
+        description: "Electricity generation per capita, measured in kilowatt-hours"
       - name: primary_energy_consumption
-        description: ""
+        description: "Primary energy consumption, measured in terawatt-hours"
       - name: carbon_intensity_elec
-        description: ""
+        description: "Carbon intensity of electricity production, measured in grams of carbon dioxide emitted per kilowatt-hour"
       - name: fossil_elec_per_capita
-        description: ""
+        description: "Per capita electricity generation from fossil fuels, measured in kilowatt-hours. This is the sum of electricity generated from coal, oil and gas."
       - name: fossil_electricity
-        description: ""
+        description: "Electricity generation from fossil fuels, measured in terawatt-hours. This is the sum of electricity generation from coal, oil and gas."
       - name: fossil_energy_per_capita
-        description: ""
+        description: "Per capita fossil fuel consumption, measured in kilowatt-hours. This is the sum of primary energy from coal, oil and gas."
       - name: fossil_fuel_consumption
-        description: ""
+        description: "Fossil fuel consumption, measured in terawatt-hours. This is the sum of primary energy from coal, oil and gas."
       - name: renewables_consumption
-        description: ""
+        description: "Primary energy consumption, measured in terawatt-hours"
       - name: renewables_elec_per_capita
-        description: ""
+        description: "Per capita electricity generation from renewables, measured in kilowatt-hours"
       - name: renewables_electricity
-        description: ""
+        description: "Electricity generation from renewables, measured in terawatt-hours"
       - name: renewables_energy_per_capita
-        description: ""
+        description: "Per capita primary energy consumption from renewables, measured in kilowatt-hours"
       - name: co2
-        description: "Total CO2 emitted by the country in the selected year."
+        description: "Annual production-based emissions of carbon dioxide (CO2), measured in million tonnes. This is based on territorial emissions, which do not account for emissions embedded in traded goods."
       - name: co2_per_gdp
-        description: "CO2 emitted by the country per gdp in the selected year."
+        description: "Annual production-based emissions of carbon dioxide (CO2), measured in kilograms per dollar of GDP (2011 international-$). Production-based emissions are based on territorial emissions, which do not account for emissions embedded in traded goods."
       - name: co2_per_capita
-        description: "CO2 emitted by the country per capita in the selected year."
+        description: "Annual production-based emissions of carbon dioxide (CO2), measured in tonnes per person. This is based on territorial emissions, which do not account for emissions embedded in traded goods."
       - name: total_ghg
-        description: "Total greenhouse gases emitted by the country in the selected year."
+        description: "Total greenhouse gas emissions including land-use change and forestry, measured in million tonnes of carbon dioxide-equivalents."
 
+exposures:
+
+  - name: Global_electricity_datasource
+    type: dashboard
+    maturity: high
+    url: https://10az.online.tableau.com/#/site/tableausalesdemo/datasources/35725354
+    description: >
+      Querying 2020 worldwide electricity KPIs. Created for Ask Data functionality.
+
+    depends_on:
+      - ref('fct_energy_small')
+      - ref('dim_regions')
+
+    owner:
+      name: Matt Brewer
+      email: mattbrewer@edtech.com
+  
+  - name: Energy_DB
+    type: dashboard
+    maturity: medium
+    url: https://10az.online.tableau.com/#/site/tableausalesdemo/datasources/35723016
+    description: >
+      Global energy and emission KPIs from 1900 to 2020 from Our World In Data
+    
+    depends_on:
+      - ref('fct_energy_small')
+      - ref('dim_regions')
+
+    owner:
+      name: Matt Brewer
+      email: mattbrewer@edtech.com
 metrics:
   - name: total_co2_emitted
     label: CO2 emitted
