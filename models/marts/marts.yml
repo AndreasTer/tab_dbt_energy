@@ -61,8 +61,25 @@ models:
       - name: total_ghg
         description: "Total greenhouse gas emissions including land-use change and forestry, measured in million tonnes of carbon dioxide-equivalents."
 
-exposures:
+  - name: fct_electricity
+    description: "View optimized for Ask Data"
+    columns:      
+      - name: country
+        description: "Geographic location"
+      - name: fossil_elec_per_capita
+        description: "Per capita electricity generation from fossil fuels, measured in kilowatt-hours. This is the sum of electricity generated from coal, oil and gas."
+      - name: fossil_electricity
+        description: "Electricity generation from fossil fuels, measured in terawatt-hours. This is the sum of electricity generation from coal, oil and gas."
+      - name: fossil_share_elec
+        description: "Share of electricity generation that comes from fossil fuels (coal, oil and gas combined)"
+      - name: renewables_elec_per_capita
+        description: "Per capita electricity generation from renewables, measured in kilowatt-hours"
+      - name: renewables_electricity
+        description: "Electricity generation from renewables, measured in terawatt-hours"
+      - name: renewables_share_elec
+        description: "Share of electricity generation that comes from renewables"
 
+exposures:
   - name: Global_electricity_datasource
     type: dashboard
     maturity: high
@@ -71,7 +88,7 @@ exposures:
       Querying 2020 worldwide electricity KPIs. Created for Ask Data functionality.
 
     depends_on:
-      - ref('fct_energy_small')
+      - ref('fct_electricity')
       - ref('dim_regions')
 
     owner:
@@ -92,6 +109,7 @@ exposures:
     owner:
       name: Matt Brewer
       email: mattbrewer@edtech.com
+
 metrics:
   - name: total_co2_emitted
     label: CO2 emitted
