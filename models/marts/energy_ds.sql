@@ -28,7 +28,7 @@ select
     (
         case
             when per_continent.electricity_total_continent <> 0
-            then round(per_country.electricity_total_country / per_continent.electricity_total_continent, 0.3)
+            then per_country.electricity_total_country / per_continent.electricity_total_continent
         end
     ) as Electricity_Percentage_Per_Continent
   from per_country
