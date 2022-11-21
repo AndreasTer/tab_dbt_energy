@@ -112,6 +112,22 @@ exposures:
       name: Matt Brewer
       email: mattbrewer@edtech.com
 
+  - name: energy_datasource
+    type: dashboard
+    maturity: medium
+    url: https//slackurl.com
+    description: >
+      Energy datasource for slack / testing demo
+    
+    depends_on:
+      - ref('stg_energy')
+      - ref('dim_regions')
+
+    owner:
+      name: Matt Brewer
+      email: mattbrewer@edtech.com
+
+
 metrics:
   - name: total_co2_emitted
     label: CO2 emitted
