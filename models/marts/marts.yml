@@ -141,7 +141,11 @@ exposures:
 
 
 metrics:
+<<<<<<< HEAD
   - name: metric_total_co2_emitted
+=======
+  - name: total_co2_emitted
+>>>>>>> 5b4e77cde3f2c0fe756d8bcdb4583f6395c32091
     label: Metric - CO2 emitted
     model: ref('fct_energy_small')
     description: "Total emitted CO2 emitted by counntry"
