@@ -80,6 +80,16 @@ models:
         description: "Electricity generation from renewables, measured in terawatt-hours"
       - name: renewables_share_elec
         description: "Share of electricity generation that comes from renewables"
+  
+    - name: energy_ds
+    description: "View for Slack Demo"
+    columns:      
+      - name: country
+        description: "Geographic location"
+      - name: continent
+        description: "Category for geographic locations"
+      - name: electricity_percentage_per_continent
+        description: "Percentage of electricity generation from fossil fuels"
 
 exposures:
   - name: Global_electricity_datasource
@@ -114,7 +124,7 @@ exposures:
       email: mattbrewer@edtech.com
 
   - name: energy_ask_data_source
-    label: AskData Fossil Electricity
+    label: Slack - Fossil Electricity
     type: dashboard
     maturity: medium
     url: https//slackurl.com
@@ -122,7 +132,7 @@ exposures:
       Energy datasource for slack / testing demo
     
     depends_on:
-      - ref('stg_energy')
+      - ref('energy_ds')
       - ref('dim_regions')
 
     owner:
@@ -131,8 +141,8 @@ exposures:
 
 
 metrics:
-  - name: total_co2_emitted
-    label: CO2 emitted
+  - name: metric_total_co2_emitted
+    label: Metric - CO2 emitted
     model: ref('fct_energy_small')
     description: "Total emitted CO2 emitted by counntry"
 
