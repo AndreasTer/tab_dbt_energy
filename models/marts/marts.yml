@@ -97,10 +97,11 @@ exposures:
       name: Matt Brewer
       email: mattbrewer@edtech.com
   
-  - name: Energy_DB
+  - name: Energy_Datasource
+    label: Energy Datasource
     type: dashboard
     maturity: medium
-    url: https://10az.online.tableau.com/#/site/tableausalesdemo/datasources/35723016
+    url: https://10az.online.tableau.com/#/site/tableausalesdemo/datasources/35535514
     description: >
       Global energy and emission KPIs from 1900 to 2020 from Our World In Data
     
@@ -112,7 +113,8 @@ exposures:
       name: Matt Brewer
       email: mattbrewer@edtech.com
 
-  - name: energy_datasource
+  - name: energy_ask_data_source
+    label: AskData Fossil Electricity
     type: dashboard
     maturity: medium
     url: https//slackurl.com
