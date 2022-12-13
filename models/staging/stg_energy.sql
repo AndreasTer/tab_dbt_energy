@@ -14,6 +14,7 @@ renamed as (
         "population" as population,
         "gdp" as gdp,
         --- this is a CI comment
+        --- this is another
         "biofuel_cons_change_pct" as biofuel_cons_change_pct,
         "biofuel_cons_change_twh" as biofuel_cons_change_twh,
         "biofuel_cons_per_capita" as biofuel_cons_per_capita,
