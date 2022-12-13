@@ -13,6 +13,7 @@ renamed as (
         "iso_code" as iso_code,
         "population" as population,
         "gdp" as gdp,
+        --- this is a CI comment
         "biofuel_cons_change_pct" as biofuel_cons_change_pct,
         "biofuel_cons_change_twh" as biofuel_cons_change_twh,
         "biofuel_cons_per_capita" as biofuel_cons_per_capita,
